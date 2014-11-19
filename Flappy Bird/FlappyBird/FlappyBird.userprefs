@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MenuScene.cs">
+    <Files>
+      <File FileName="AppMain.cs" Line="143" Column="11" />
+      <File FileName="GameScene.cs" Line="63" Column="28" />
+      <File FileName="MenuScene.cs" Line="20" Column="4" />
+      <File FileName="Bird.cs" Line="33" Column="3" />
+      <File FileName="Obstacle.cs" Line="153" Column="19" />
+      <File FileName="Background.cs" Line="89" Column="26" />
+      <File FileName="app.xml" Line="11" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
