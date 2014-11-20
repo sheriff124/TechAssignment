@@ -11,7 +11,7 @@ using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
 
-namespace FlappyBird
+namespace SPACE
 {
 	public class MenuScene
 	{
@@ -19,7 +19,7 @@ namespace FlappyBird
 		
 		private static int 				viewWidth, viewHeight;
 		private static TouchStatus		currentTouchStatus;
-		private static bool				nextScene;
+		public  static bool				changeScene {get;}
 		
 		public static Background[]		bgList;
 		
@@ -38,8 +38,6 @@ namespace FlappyBird
 			
 			viewWidth = Director.Instance.GL.Context.GetViewport().Width;
 			viewHeight = Director.Instance.GL.Context.GetViewport().Height;
-			
-			nextScene = false;
 			
 			CreateBackground();
 			bgList[0].DrawBackground(menuScene);
@@ -97,7 +95,7 @@ namespace FlappyBird
 				{
 					if(InsideRect(xPos, yPos, playBtn.GetRectangle()))
 					{
-						nextScene = true;
+						changeScene = true;
 					}
 				}
 
@@ -106,18 +104,6 @@ namespace FlappyBird
 			
 			bgList[0].Update(deltaTime);
 
-		}
-		
-		public bool NextScene()
-		{
-			if(nextScene)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
 		}
 		
 		public void CreateBackground()

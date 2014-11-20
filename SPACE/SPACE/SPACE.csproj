@@ -45,6 +45,7 @@
     <Compile Include="GameScene.cs" />
     <Compile Include="MenuScene.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="Observer.cs" />
   </ItemGroup>
   <ItemGroup>
     <PsmMetadata Include="app.xml" />
