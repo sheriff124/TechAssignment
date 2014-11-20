@@ -15,35 +15,29 @@ namespace SPACE
 {
 	public class AppMain
 	{
-
-		private enum Scene { Game, Menu };
-		
-		private static Sce.PlayStation.HighLevel.UI.Scene 			gameUI;
-		private static Sce.PlayStation.HighLevel.UI.Scene 			blankUI;
-		private static Sce.PlayStation.HighLevel.UI.Label			scoreLabel;
+		private enum Scene {Game, Menu};
 		
 		private static GameScene	gameScene;
 		private static MenuScene	menuScene;
 		private static Scene		currentScene;
 		
 		private static Timer		deltaTimer;
-		private static double		deltaTime;
-		
-		
+		private static float		deltaTime;
+		private static bool			quit;
 				
 		public static void Main (string[] args)
 		{
 			Initialize();
 			
-			bool quitGame = false;
+			quit = false;
 			deltaTimer = new Timer();
 			
-			//Game loop
-			while (!quitGame) 
+			while (!quit)
 			{
-				deltaTime = deltaTimer.Milliseconds();
+				deltaTime = (float)deltaTimer.Milliseconds();
 				
 				Update (deltaTime);
+				
 				Director.Instance.Update();
 				Director.Instance.Render();
 				UISystem.Render();
@@ -58,75 +52,50 @@ namespace SPACE
 		
 		public static void Initialize ()
 		{
+			//Set up director and UISystem.
 			Director.Initialize ();
 			UISystem.Initialize(Director.Instance.GL.Context);
 			
-			//Create Scenes
-			gameScene = new GameScene();
-			gameScene.GetScene().Camera.SetViewFromViewport();
+			//Create Game Scenes
 			menuScene = new MenuScene();
+			gameScene = new GameScene();
 			menuScene.GetScene().Camera.SetViewFromViewport();
+			gameScene.GetScene().Camera.SetViewFromViewport();
 			
-			//Create the UI Stuff 
-			blankUI = new Sce.PlayStation.HighLevel.UI.Scene();
-			gameUI = new Sce.PlayStation.HighLevel.UI.Scene();
-			
-			Panel panel  = new Panel();
-			panel.Width  = Director.Instance.GL.Context.GetViewport().Width;
-			panel.Height = Director.Instance.GL.Context.GetViewport().Height;
-			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
-			scoreLabel.HorizontalAlignment = HorizontalAlignment.Center;
-			scoreLabel.VerticalAlignment = VerticalAlignment.Top;
-			scoreLabel.SetPosition(	Director.Instance.GL.Context.GetViewport().Width/2 - scoreLabel.Width/2,
-									Director.Instance.GL.Context.GetViewport().Height*0.1f - scoreLabel.Height/2);
-			panel.AddChildLast(scoreLabel);
-			gameUI.RootWidget.AddChildLast(panel);
-			
-			//Make the Menu the first scene
+			//Run the scene.
 			currentScene = Scene.Menu;
-			
-			//Run the current scene.
 			Director.Instance.RunWithScene(menuScene.GetScene(), true);
 		}
 		
-		
-		
-		public static void StartGameScene()
+		public static void Update(float deltaTime)
 		{
-			currentScene = Scene.Game;
-			UISystem.SetScene(gameUI);
-			Director.Instance.ReplaceScene(new TransitionSolidFade(gameScene.GetScene())
-			{ Duration = 1.0f, Tween = (x) => Sce.PlayStation.HighLevel.GameEngine2D.Base.Math.PowEaseOut( x, 3.0f )});
-		}
-		
-
-		
-		public static void StartMenuScene()
-		{
-			currentScene= Scene.Menu;
-			UISystem.SetScene(blankUI);
-			Director.Instance.ReplaceScene(menuScene.GetScene());
-		}
-		
-		
-		
-		public static void Update(double deltaTime)
-		{
+			//Really basic scene manager
+			//Calls update each frame on either the game or menu scene
 			switch(currentScene)
 			{
 				case Scene.Game:
+				
 					gameScene.Update (deltaTime);
-					scoreLabel.Text = "" + gameScene.GetScore();
+				
+					if(gameScene.swapScene)
+					{
+						currentScene = Scene.Menu;
+						Director.Instance.ReplaceScene(menuScene.GetScene());
+					}
+				
 				break;
 				
 				case Scene.Menu:
-					menuScene.Update (deltaTime);
-					if(true)
-					{
-						StartGameScene ();
-					}
-				break;
 				
+					menuScene.Update (deltaTime);
+				
+					if(menuScene.swapScene)
+					{
+						currentScene = Scene.Game;
+						Director.Instance.ReplaceScene(gameScene.GetScene());
+					}
+				
+				break;
 			}
 		}
 		

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{900BF26C-CEFD-43F0-AB56-9B428F5CDC1C}</ProjectGuid>
+    <ProjectGuid>{DA5EC9AD-7983-4145-B19A-F6D3A29F1379}</ProjectGuid>
     <ProjectTypeGuids>{69878862-DA7D-4DC6-B0A1-50D8FAB4242F};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FlappyBird</RootNamespace>
-    <AssemblyName>FlappyBird</AssemblyName>
+    <RootNamespace>SPACE</RootNamespace>
+    <AssemblyName>SPACE</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,61 +35,22 @@
     <Reference Include="System.Core" />
     <Reference Include="Sce.PlayStation.Core" />
     <Reference Include="Sce.PlayStation.HighLevel.GameEngine2D" />
+    <Reference Include="Sce.PlayStation.HighLevel.Model" />
+    <Reference Include="Sce.PlayStation.HighLevel.Physics2D" />
     <Reference Include="Sce.PlayStation.HighLevel.UI" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMain.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="Obstacle.cs" />
-    <Compile Include="Background.cs" />
     <Compile Include="GameScene.cs" />
     <Compile Include="MenuScene.cs" />
-    <Compile Include="Button.cs" />
-    <Compile Include="Observer.cs" />
+    <Compile Include="SceneManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ShaderProgram Include="shaders\Simple.fcg" />
+    <ShaderProgram Include="shaders\Simple.vcg" />
   </ItemGroup>
   <ItemGroup>
     <PsmMetadata Include="app.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="shaders\" />
-    <Folder Include="textures\" />
-    <Folder Include="fonts\" />
-    <Folder Include="sfx\" />
-    <Folder Include="textures\backgrounds\" />
-    <Folder Include="textures\obstacles\" />
-    <Folder Include="textures\menus\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ShaderProgram Include="shaders\Texture.fcg" />
-    <ShaderProgram Include="shaders\Texture.vcg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="textures\bird.png" />
-    <Content Include="sfx\deathSound.wav" />
-    <Content Include="sfx\scoreSound.wav" />
-    <Content Include="sfx\scoreSound2.wav" />
-    <Content Include="sfx\powerSound.wav" />
-    <Content Include="textures\backgrounds\background.png" />
-    <Content Include="textures\backgrounds\backgroundAlt.png" />
-    <Content Include="textures\backgrounds\FlappyMenuForeground.png" />
-    <Content Include="textures\backgrounds\FlappyMenuL1.png" />
-    <Content Include="textures\backgrounds\FlappyMenuL2.png" />
-    <Content Include="textures\backgrounds\FlappyMenuL3.png" />
-    <Content Include="textures\backgrounds\FlappyMenuL4.png" />
-    <Content Include="textures\backgrounds\Foreground.png" />
-    <Content Include="textures\backgrounds\SeasideLargeL1.png" />
-    <Content Include="textures\backgrounds\SeasideLargeL2.png" />
-    <Content Include="textures\backgrounds\SeasideLargeL3.png" />
-    <Content Include="textures\obstacles\bottompipe.png" />
-    <Content Include="textures\obstacles\bottompipe2.png" />
-    <Content Include="textures\obstacles\toppipe.png" />
-    <Content Include="textures\obstacles\toppipe2.png" />
-    <Content Include="textures\menus\FlappyLogo.png" />
-    <Content Include="textures\menus\FlappyLogoCrap.png" />
-    <Content Include="textures\menus\FlappyLogoGlow.png" />
-    <Content Include="textures\menus\PlayButton.png" />
-    <Content Include="textures\menus\PlayButtonHL.png" />
-    <Content Include="textures\menus\ResetButton.png" />
-  </ItemGroup>
 </Project>
