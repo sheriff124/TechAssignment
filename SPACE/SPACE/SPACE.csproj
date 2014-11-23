@@ -43,7 +43,8 @@
     <Compile Include="AppMain.cs" />
     <Compile Include="GameScene.cs" />
     <Compile Include="MenuScene.cs" />
-    <Compile Include="SceneManager.cs" />
+    <Compile Include="Entity.cs" />
+    <Compile Include="Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
