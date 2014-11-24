@@ -52,7 +52,7 @@ namespace SPACE
 		
 		public static void Initialize ()
 		{
-			//Set up director and UISystem.
+			//Set up director
 			Director.Initialize ();
 			UISystem.Initialize(Director.Instance.GL.Context);
 			
@@ -63,8 +63,8 @@ namespace SPACE
 			gameScene.GetScene().Camera.SetViewFromViewport();
 			
 			//Run the scene.
-			currentScene = Scene.Menu;
-			Director.Instance.RunWithScene(menuScene.GetScene(), true);
+			currentScene = Scene.Game;
+			Director.Instance.RunWithScene(gameScene.GetScene(), true);
 		}
 		
 		public static void Update(float deltaTime)

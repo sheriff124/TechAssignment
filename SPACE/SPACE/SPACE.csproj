@@ -54,4 +54,13 @@
     <PsmMetadata Include="app.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="textures\" />
+    <Folder Include="sfx\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="textures\bird.png" />
+    <Content Include="textures\MenuScreen.png" />
+    <Content Include="textures\Spacebro.png" />
+  </ItemGroup>
 </Project>

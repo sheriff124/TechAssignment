@@ -20,19 +20,18 @@ namespace SPACE
 		private bool		scenePaused;
 		public bool			swapScene {get; set;}
 		
-		private Entity		player;
 		
 		public MenuScene ()
 		{
 			menuScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			scenePaused = false;
-			player = new Player();
+			swapScene = false;
 		}
 		
 		public void Update(float deltaTime)
 		{
 			var touches = Touch.GetData(0);
-			player.Draw (menuScene);
+			
 			if(!scenePaused)
 			{
 			}

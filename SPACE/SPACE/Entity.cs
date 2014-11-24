@@ -26,11 +26,22 @@ namespace SPACE
 		
 		public Entity ()
 		{
+			position = new Vector2(0.0f,0.0f);
+			scale = new Vector2(1.0f,1.0f);
+			angle = 0.0f;
+			
+			sprite = null;
+			texInfo = null;
+			
+			gravityIsDown = true;
 		}
 		
-		public virtual void Draw (Scene _scene)
+		public virtual void AddToScene (Scene _scene)
 		{
-			_scene.AddChild(sprite);
+			if(sprite != null)
+			{
+				_scene.AddChild(sprite);
+			}
 		}
 		
 		public virtual void Update(float deltaTime)

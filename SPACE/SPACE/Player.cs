@@ -9,7 +9,6 @@ using Sce.PlayStation.Core.Audio;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
-using Sce.PlayStation.HighLevel.UI;
 
 
 
@@ -19,12 +18,16 @@ namespace SPACE
 	{
 		public Player ()
 		{
-			TextureInfo texInfo = new TextureInfo("/Application/textures/bird.png");
-			sprite = new SpriteUV(texInfo); 
+			TextureInfo texInfo = new TextureInfo("/Application/textures/Spacebro.png");
+			sprite = new SpriteUV(texInfo);
+			position = new Vector2(100.0f, 100.0f);
 		}
 		
 		override public void Update(float deltaTime)
 		{
+			sprite.Position = position;
+			sprite.Angle = angle;
+			sprite.Scale = scale;
 		}
 		
 	}

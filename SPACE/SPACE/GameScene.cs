@@ -20,12 +20,16 @@ namespace SPACE
 		private bool		scenePaused;
 		public bool			swapScene {get; set;}
 		
+		private Entity		player;
 		
 		public GameScene()
 		{
 			gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			scenePaused = false;
 			swapScene = false;
+			
+			player = new Player();
+			player.AddToScene (gameScene);
 		}
 		
 		public void Update(float deltaTime)
