@@ -159,3 +159,5 @@ G:\GitRepo\TechAssignment-master\SPACE\SPACE\obj\Debug\shaders\shaders\Simple.cg
 G:\GitRepo\TechAssignment-master\SPACE\SPACE\obj\Debug\convertedpdb\app.exe.mdb
 G:\GitRepo\TechAssignment-master\SPACE\SPACE\obj\Debug\app.exe
 G:\GitRepo\TechAssignment-master\SPACE\SPACE\obj\Debug\app.pdb
+C:\Dev\GitRepo\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-unsigned\Application\textures\Spacebro2.png
+C:\Dev\GitRepo\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-signed\Application\textures\Spacebro2.png

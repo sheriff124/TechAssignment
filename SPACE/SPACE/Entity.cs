@@ -15,12 +15,9 @@ namespace SPACE
 {
 	public class Entity
 	{
-		protected Vector2 		position;
-		protected Vector2 		scale;
-		protected float   		angle;
-
 		protected SpriteUV 		sprite;
-
+		protected TextureInfo 	texInfo;
+		
 		public SpriteUV Sprite {
 			get {
 				return this.sprite;
@@ -29,21 +26,11 @@ namespace SPACE
 				sprite = value;
 			}
 		}
-
-		protected TextureInfo 	texInfo;
-
-		protected Boolean 		gravityIsDown;
 		
 		public Entity ()
 		{
-			position = new Vector2(0.0f,0.0f);
-			scale = new Vector2(1.0f,1.0f);
-			angle = 0.0f;
-			
 			sprite = null;
 			texInfo = null;
-			
-			gravityIsDown = true;
 		}
 		
 		public virtual void AddToScene (Scene _scene)
@@ -54,7 +41,7 @@ namespace SPACE
 			}
 		}
 		
-		public virtual void Update(float deltaTime){}
+		public virtual void Update(float _deltaTime){}
 		
 	}
 }

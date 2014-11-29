@@ -19,7 +19,7 @@ namespace SPACE
 		
 		private static GameScene	gameScene;
 		private static MenuScene	menuScene;
-		private static Scene		currentScene;
+		//private static Scene		currentScene;
 		
 		private static Timer		deltaTimer;
 		private static float		deltaTime;
@@ -66,7 +66,7 @@ namespace SPACE
 			gameScene.Camera.SetViewFromViewport();
 			
 			//Run the scene.
-			currentScene = Scene.Game;
+			//currentScene = Scene.Game;
 			Director.Instance.RunWithScene(gameScene, true);
 		}
 		
