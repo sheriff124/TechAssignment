@@ -13,27 +13,33 @@ using Sce.PlayStation.HighLevel.UI;
 
 namespace SPACE
 {
-	public class GameScene 
+	public class GameScene : Sce.PlayStation.HighLevel.GameEngine2D.Scene
 	{
-		private Sce.PlayStation.HighLevel.GameEngine2D.Scene 	gameScene;
+
 		
 		private bool		scenePaused;
 		public bool			swapScene {get; set;}
 		
 		private Entity		player;
+		//private SpriteUV testSprite;
 		
 		public GameScene()
 		{
-			gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
+			Scheduler.Instance.ScheduleUpdateForTarget(this, 1, false);	// Tells the director that this "node" requires to be updated
+			
+			//gameScene = new Sce.PlayStation.HighLevel.GameEngine2D.Scene();
 			scenePaused = false;
 			swapScene = false;
 			
 			player = new Player();
-			player.AddToScene (gameScene);
+			this.AddChild(player.Sprite);
 		}
 		
-		public void Update(float deltaTime)
+		public override void Update(float deltaTime)
 		{
+			Console.WriteLine("update");
+			
+			
 			var touches = Touch.GetData(0);
 
 			if(!scenePaused)
@@ -45,10 +51,7 @@ namespace SPACE
 		{
 		}
 		
-		public Sce.PlayStation.HighLevel.GameEngine2D.Scene GetScene()
-		{
-			return gameScene;
-		}
+		
 	}
 }
 

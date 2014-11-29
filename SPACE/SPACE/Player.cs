@@ -18,9 +18,12 @@ namespace SPACE
 	{
 		public Player ()
 		{
-			TextureInfo texInfo = new TextureInfo("/Application/textures/Spacebro.png");
-			sprite = new SpriteUV(texInfo);
-			position = new Vector2(100.0f, 100.0f);
+			TextureInfo tInfo = new TextureInfo ("/Application/textures/spacebro.png");
+			sprite = new SpriteUV (tInfo);
+			
+			sprite.Quad.S = tInfo.TextureSizef;
+			sprite.Position = new Vector2 (0, 0);
+			position = new Vector2(10.0f, 10.0f);
 		}
 		
 		override public void Update(float deltaTime)
@@ -28,6 +31,11 @@ namespace SPACE
 			sprite.Position = position;
 			sprite.Angle = angle;
 			sprite.Scale = scale;
+		}
+		
+		override public void AddToScene (Scene _scene)
+		{
+			//_scene.AddChild(sprite);
 		}
 		
 	}

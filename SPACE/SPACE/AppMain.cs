@@ -36,7 +36,7 @@ namespace SPACE
 			{
 				deltaTime = (float)deltaTimer.Milliseconds();
 				
-				Update (deltaTime);
+				//Update (deltaTime);
 				
 				Director.Instance.Update();
 				Director.Instance.Render();
@@ -56,47 +56,50 @@ namespace SPACE
 			Director.Initialize ();
 			UISystem.Initialize(Director.Instance.GL.Context);
 			
+			Sce.PlayStation.HighLevel.UI.Scene blankUI = new Sce.PlayStation.HighLevel.UI.Scene();
+			UISystem.SetScene(blankUI);
+			
 			//Create Game Scenes
 			menuScene = new MenuScene();
 			gameScene = new GameScene();
 			menuScene.GetScene().Camera.SetViewFromViewport();
-			gameScene.GetScene().Camera.SetViewFromViewport();
+			gameScene.Camera.SetViewFromViewport();
 			
 			//Run the scene.
 			currentScene = Scene.Game;
-			Director.Instance.RunWithScene(gameScene.GetScene(), true);
+			Director.Instance.RunWithScene(gameScene, true);
 		}
 		
 		public static void Update(float deltaTime)
 		{
 			//Really basic scene manager
 			//Calls update each frame on either the game or menu scene
-			switch(currentScene)
-			{
-				case Scene.Game:
-				
-					gameScene.Update (deltaTime);
-				
-					if(gameScene.swapScene)
-					{
-						currentScene = Scene.Menu;
-						Director.Instance.ReplaceScene(menuScene.GetScene());
-					}
-				
-				break;
-				
-				case Scene.Menu:
-				
-					menuScene.Update (deltaTime);
-				
-					if(menuScene.swapScene)
-					{
-						currentScene = Scene.Game;
-						Director.Instance.ReplaceScene(gameScene.GetScene());
-					}
-				
-				break;
-			}
+//			switch(currentScene)
+//			{
+//				case Scene.Game:
+//				
+//					gameScene.Update (deltaTime);
+//				
+//					if(gameScene.swapScene)
+//					{
+//						currentScene = Scene.Menu;
+//						//Director.Instance.ReplaceScene(menuScene.GetScene());
+//					}
+//				
+//				break;
+//				
+//				case Scene.Menu:
+//				
+//					menuScene.Update (deltaTime);
+//				
+//					if(menuScene.swapScene)
+//					{
+//						currentScene = Scene.Game;
+//						//Director.Instance.ReplaceScene(gameScene.GetScene());
+//					}
+//				
+//				break;
+//			}
 		}
 		
 	}

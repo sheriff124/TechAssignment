@@ -1,19 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="SPACE\AppMain.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="SPACE\InputHandler.cs">
     <Files>
-      <File FileName="SPACE\AppMain.cs" Line="82" Column="33" />
-      <File FileName="SPACE\MenuScene.cs" Line="29" Column="1" />
-      <File FileName="SPACE\GameScene.cs" Line="33" Column="1" />
-      <File FileName="SPACE\Entity.cs" Line="45" Column="1" />
-      <File FileName="SPACE\Player.cs" Line="24" Column="1" />
+      <File FileName="SPACE\AppMain.cs" Line="83" Column="20" />
+      <File FileName="SPACE\MenuScene.cs" Line="46" Column="21" />
+      <File FileName="SPACE\GameScene.cs" Line="33" Column="4" />
+      <File FileName="SPACE\Entity.cs" Line="23" Column="3" />
+      <File FileName="SPACE\Player.cs" Line="36" Column="49" />
+      <File FileName="SPACE\InputHandler.cs" Line="13" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="SPACE" expanded="True">
             <Node name="textures" expanded="True" />
-            <Node name="AppMain.cs" selected="True" />
+            <Node name="InputHandler.cs" selected="True" />
           </Node>
         </State>
       </Pad>

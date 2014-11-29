@@ -20,6 +20,16 @@ namespace SPACE
 		protected float   		angle;
 
 		protected SpriteUV 		sprite;
+
+		public SpriteUV Sprite {
+			get {
+				return this.sprite;
+			}
+			set {
+				sprite = value;
+			}
+		}
+
 		protected TextureInfo 	texInfo;
 
 		protected Boolean 		gravityIsDown;
@@ -44,10 +54,7 @@ namespace SPACE
 			}
 		}
 		
-		public virtual void Update(float deltaTime)
-		{
-			
-		}
+		public virtual void Update(float deltaTime){}
 		
 	}
 }
