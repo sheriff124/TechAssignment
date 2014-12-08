@@ -20,7 +20,7 @@ namespace SPACE
 		public bool			swapScene {get; set;}
 		
 		private Entity			player;
-		private Entity			enemy;
+		private Entity[]		enemy;
 		
 		
 		public GameScene()
@@ -30,8 +30,11 @@ namespace SPACE
 			scenePaused = false;
 			swapScene = false;;
 			
-			enemy = new Enemy();
-			this.AddChild(enemy.Sprite);
+			enemy = new Entity[2];
+			enemy[0] = new Enemy(new Vector2(100f,0f));
+			this.AddChild(enemy[0].Sprite);
+			enemy[1] = new Enemy(new Vector2(300f,0f));
+			this.AddChild(enemy[1].Sprite);
 			
 			player = new Player();
 			this.AddChild(player.Sprite);
@@ -45,7 +48,8 @@ namespace SPACE
 			if(!scenePaused)
 			{
 				player.Update (deltaTime);
-				enemy.Update (deltaTime);
+				enemy[0].Update (deltaTime);
+				enemy[1].Update (deltaTime);
 			}
 		}
 		
