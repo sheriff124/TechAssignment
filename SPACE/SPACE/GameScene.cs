@@ -30,13 +30,17 @@ namespace SPACE
 			scenePaused = false;
 			swapScene = false;;
 			
-			enemy = new Entity[3];
-			enemy[0] = new Enemy(new Vector2(100f,0f));
+			enemy = new Entity[5];
+			enemy[0] = new Enemy(new Vector2(100f,0f), "WeakEnemy4");
 			this.AddChild(enemy[0].Sprite);
-			enemy[1] = new Enemy(new Vector2(300f,0f));
+			enemy[1] = new Enemy(new Vector2(300f,0f), "WeakEnemy4");
 			this.AddChild(enemy[1].Sprite);
-			enemy[2] = new Enemy(new Vector2(500f,0f));
+			enemy[2] = new Enemy(new Vector2(500f,0f), "WeakEnemy4");
 			this.AddChild(enemy[2].Sprite);
+			enemy[3] = new Enemy(new Vector2(700f,0f), "WeakEnemy4");
+			this.AddChild(enemy[3].Sprite);
+			enemy[4] = new Enemy(new Vector2(400,0f), "WeakEnemy3");
+			this.AddChild(enemy[4].Sprite);
 			
 			player = new Player();
 			this.AddChild(player.Sprite);
@@ -49,10 +53,12 @@ namespace SPACE
 			
 			if(!scenePaused)
 			{
-				player.Update (deltaTime);
-				enemy[0].Update (deltaTime);
-				enemy[1].Update (deltaTime);
-				enemy[2].Update (deltaTime);
+				player.Update (deltaTime,false);
+				enemy[0].Update (deltaTime,false);
+				enemy[1].Update (deltaTime,false);
+				enemy[2].Update (deltaTime,false);
+				enemy[3].Update (deltaTime,false);
+				enemy[4].Update (deltaTime,true);
 			}
 		}
 		

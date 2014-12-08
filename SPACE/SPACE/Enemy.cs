@@ -19,29 +19,55 @@ namespace SPACE
 		private enum DirState { Still, Left, Right };
 		private DirState dirState;
 		private float moveSpeed;
+		private float RmoveSpeed;
+		private Vector2 min;
+		private Vector2 max;
+		private Bounds2 box;
 		int i = 0;
-		public Enemy (Vector2 Pos)
+		public Enemy (Vector2 Pos, String FileName)
 		{
-			texInfo = new TextureInfo ("/Application/textures/WeakEnemy3.png");
+			texInfo = new TextureInfo ("/Application/textures/" + FileName + ".png");
 			sprite = new SpriteUV (texInfo);
 			sprite.Quad.S = texInfo.TextureSizef;
 			sprite.Position = new Vector2 (Pos.X, Pos.Y);
 			moveSpeed = 1.0f;
+			
+			min = new Vector2 (sprite.Position.X,sprite.Position.Y);
+			max = new Vector2 (sprite.Position.X+44.0f,sprite.Position.Y+50.0f);
+			box = new Bounds2 (min, max);
 		}	
-		override public void Update(float _deltaTime)
+		override public void Update(float _deltaTime, bool hard)
 		{
-			switch(dirState)
+			if(hard == false)
 			{
-				case DirState.Right:
-					sprite.Position = new Vector2(sprite.Position.X+moveSpeed, sprite.Position.Y);
-				break;
-				
-				case DirState.Left:
-					sprite.Position = new Vector2(sprite.Position.X-moveSpeed, sprite.Position.Y);
-				break;
+				switch(dirState)
+				{
+					case DirState.Right:
+						sprite.Position = new Vector2(sprite.Position.X+moveSpeed, sprite.Position.Y);
+					break;
+					
+					case DirState.Left:
+						sprite.Position = new Vector2(sprite.Position.X-moveSpeed, sprite.Position.Y);
+					break;
+				}
+				weakEnemyMovement();
 			}
-			weakEnemyMovement();
-			//strongEnemyMovement();
+			else
+			{
+				switch(dirState)
+				{
+					case DirState.Right:
+						sprite.Position = new Vector2(sprite.Position.X+moveSpeed, sprite.Position.Y);
+					break;
+					
+					case DirState.Left:
+						sprite.Position = new Vector2(sprite.Position.X-moveSpeed, sprite.Position.Y);
+					break;
+					weakEnemyMovement();
+				}
+				strongEnemyMovement();
+			}
+			
 		}
 		public void weakEnemyMovement()
 		{
@@ -60,10 +86,10 @@ namespace SPACE
 		}
 		public void strongEnemyMovement()
 		{
-			if(i>200)
+			if(i>50)
 			{
 				dirState = DirState.Left;
-				if(i==400)
+				if(i==100)
 				i=0;
 			}
 			else
@@ -73,12 +99,19 @@ namespace SPACE
 			if(i%20 == 0)
 			{
 				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 20);
+				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 20);
 			}
 			i++;
 		}
-		public void setPosition(float X, float Y)
+		public Vector2 Pos()
 		{
-			
+			Vector2 Pos = new Vector2(sprite.Position.X, sprite.Position.Y);
+			return Pos;
+		}
+				
+		public Bounds2 Bbox()
+		{
+				return box;
 		}
 	}
 }
