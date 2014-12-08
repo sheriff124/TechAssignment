@@ -38,7 +38,7 @@ namespace SPACE
 			walkSpeed = 2.0f;
 		}
 		
-		override public void Update(float _deltaTime, bool hard)
+		override public void Update(float _deltaTime, bool hard, bool second)
 		{
 			GetInput ();
 			

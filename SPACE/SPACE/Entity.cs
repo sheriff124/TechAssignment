@@ -41,7 +41,7 @@ namespace SPACE
 			}
 		}
 		
-		public virtual void Update(float _deltaTime, bool hard){}
+		public virtual void Update(float _deltaTime, bool hard, bool second){}
 		
 	}
 }

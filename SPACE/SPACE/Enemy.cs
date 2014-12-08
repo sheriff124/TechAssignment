@@ -30,13 +30,14 @@ namespace SPACE
 			sprite = new SpriteUV (texInfo);
 			sprite.Quad.S = texInfo.TextureSizef;
 			sprite.Position = new Vector2 (Pos.X, Pos.Y);
-			moveSpeed = 1.0f;
+			moveSpeed = 2.0f;
+			RmoveSpeed = 5.0f;
 			
 			min = new Vector2 (sprite.Position.X,sprite.Position.Y);
 			max = new Vector2 (sprite.Position.X+44.0f,sprite.Position.Y+50.0f);
 			box = new Bounds2 (min, max);
 		}	
-		override public void Update(float _deltaTime, bool hard)
+		override public void Update(float _deltaTime, bool hard, bool second)
 		{
 			if(hard == false)
 			{
@@ -57,15 +58,14 @@ namespace SPACE
 				switch(dirState)
 				{
 					case DirState.Right:
-						sprite.Position = new Vector2(sprite.Position.X+moveSpeed, sprite.Position.Y);
+						sprite.Position = new Vector2(sprite.Position.X+RmoveSpeed, sprite.Position.Y);
 					break;
 					
 					case DirState.Left:
-						sprite.Position = new Vector2(sprite.Position.X-moveSpeed, sprite.Position.Y);
+						sprite.Position = new Vector2(sprite.Position.X-RmoveSpeed, sprite.Position.Y);
 					break;
-					weakEnemyMovement();
 				}
-				strongEnemyMovement();
+				strongEnemyMovement(second);
 			}
 			
 		}
@@ -84,24 +84,38 @@ namespace SPACE
 			}
 			i++;
 		}
-		public void strongEnemyMovement()
+		public void strongEnemyMovement(bool second)
 		{
-			if(i>50)
+			if(second == false)
 			{
-				dirState = DirState.Left;
-				if(i==100)
-				i=0;
-			}
-			else
-			{ 
-				dirState = DirState.Right;
-			}
-			if(i%20 == 0)
+				if(i>50)
+				{
+					dirState = DirState.Left;
+					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 5);
+					if(i==100)
+					i=0;
+				}
+				else
+				{ 
+					dirState = DirState.Right;
+					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 5);
+				}
+			}else
 			{
-				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 20);
-				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 20);
+				if(i>50)
+				{
+					dirState = DirState.Right;
+					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y - 5);
+					if(i==100)
+					i=0;
+				}
+				else
+				{ 
+					dirState = DirState.Left;
+					sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y + 5);
+				}
 			}
-			i++;
+				i++;
 		}
 		public Vector2 Pos()
 		{
