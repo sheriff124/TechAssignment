@@ -25,9 +25,8 @@ namespace SPACE
 			texInfo = new TextureInfo ("/Application/textures/bird.png");
 			sprite = new SpriteUV (texInfo);
 			sprite.Quad.S = texInfo.TextureSizef;
-			sprite.Position = new Vector2 (50, 50);
-			dirState = DirState.Still;
-			moveSpeed = 5.0f;
+			sprite.Position = new Vector2 (100, 0);
+			moveSpeed = 1.0f;
 		}	
 		override public void Update(float _deltaTime)
 		{
@@ -46,10 +45,10 @@ namespace SPACE
 		public void weakEnemyMovement()
 		{
 			
-			if(i>20)
+			if(i>100)
 			{
 				dirState = DirState.Left;
-				if(i==40)
+				if(i==200)
 				i=0;
 			}
 			else
@@ -57,6 +56,10 @@ namespace SPACE
 				dirState = DirState.Right;
 			}
 			i++;
+		}
+		public void setPosition(float X, float Y)
+		{
+			
 		}
 	}
 }
