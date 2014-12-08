@@ -8,7 +8,8 @@
       <File FileName="SPACE\Entity.cs" Line="33" Column="19" />
       <File FileName="SPACE\Player.cs" Line="38" Column="21" />
       <File FileName="SPACE\InputHandler.cs" Line="43" Column="36" />
-      <File FileName="SPACE\Enemy.cs" Line="17" Column="29" />
+      <File FileName="SPACE\Enemy.cs" Line="28" Column="30" />
+      <File FileName="SPACE\BackgroundLoader.cs" Line="14" Column="3" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

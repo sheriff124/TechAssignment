@@ -19,9 +19,10 @@ namespace SPACE
 		private enum DirState { Still, Left, Right };
 		private DirState dirState;
 		private float moveSpeed;
+		int i = 0;
 		public Enemy ()
 		{
-			texInfo = new TextureInfo ("/SPACE/textures/bird.png");
+			texInfo = new TextureInfo ("/Application/textures/bird.png");
 			sprite = new SpriteUV (texInfo);
 			sprite.Quad.S = texInfo.TextureSizef;
 			sprite.Position = new Vector2 (50, 50);
@@ -40,6 +41,22 @@ namespace SPACE
 					sprite.Position = new Vector2(sprite.Position.X-moveSpeed, sprite.Position.Y);
 				break;
 			}
+			weakEnemyMovement();
+		}
+		public void weakEnemyMovement()
+		{
+			
+			if(i>20)
+			{
+				dirState = DirState.Left;
+				if(i==40)
+				i=0;
+			}
+			else
+			{ 
+				dirState = DirState.Right;
+			}
+			i++;
 		}
 	}
 }

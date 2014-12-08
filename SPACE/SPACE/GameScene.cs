@@ -20,6 +20,7 @@ namespace SPACE
 		public bool			swapScene {get; set;}
 		
 		private Entity			player;
+		private Entity			enemy;
 		
 		
 		public GameScene()
@@ -29,8 +30,12 @@ namespace SPACE
 			scenePaused = false;
 			swapScene = false;;
 			
+			enemy = new Enemy();
+			this.AddChild(enemy.Sprite);
+			
 			player = new Player();
 			this.AddChild(player.Sprite);
+			
 		}
 		
 		public override void Update(float deltaTime)
@@ -40,6 +45,7 @@ namespace SPACE
 			if(!scenePaused)
 			{
 				player.Update (deltaTime);
+				enemy.Update (deltaTime);
 			}
 		}
 		
