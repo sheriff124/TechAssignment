@@ -22,7 +22,7 @@ namespace SPACE
 		int i = 0;
 		public Enemy (Vector2 Pos)
 		{
-			texInfo = new TextureInfo ("/Application/textures/bird.png");
+			texInfo = new TextureInfo ("/Application/textures/WeakEnemy3.png");
 			sprite = new SpriteUV (texInfo);
 			sprite.Quad.S = texInfo.TextureSizef;
 			sprite.Position = new Vector2 (Pos.X, Pos.Y);

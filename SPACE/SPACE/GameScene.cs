@@ -30,11 +30,13 @@ namespace SPACE
 			scenePaused = false;
 			swapScene = false;;
 			
-			enemy = new Entity[2];
+			enemy = new Entity[3];
 			enemy[0] = new Enemy(new Vector2(100f,0f));
 			this.AddChild(enemy[0].Sprite);
 			enemy[1] = new Enemy(new Vector2(300f,0f));
 			this.AddChild(enemy[1].Sprite);
+			enemy[2] = new Enemy(new Vector2(500f,0f));
+			this.AddChild(enemy[2].Sprite);
 			
 			player = new Player();
 			this.AddChild(player.Sprite);
@@ -50,6 +52,7 @@ namespace SPACE
 				player.Update (deltaTime);
 				enemy[0].Update (deltaTime);
 				enemy[1].Update (deltaTime);
+				enemy[2].Update (deltaTime);
 			}
 		}
 		

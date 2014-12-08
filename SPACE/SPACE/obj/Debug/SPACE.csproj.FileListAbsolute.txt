@@ -199,3 +199,7 @@ C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\obj\Debug\shaders\shaders\Simple
 C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\obj\Debug\convertedpdb\app.exe.mdb
 C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\obj\Debug\app.exe
 C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\obj\Debug\app.pdb
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-unsigned\Application\textures\WeakEnemy2.png
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-signed\Application\textures\WeakEnemy2.png
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-unsigned\Application\textures\WeakEnemy3.png
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-signed\Application\textures\WeakEnemy3.png

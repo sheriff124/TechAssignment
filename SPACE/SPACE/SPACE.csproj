@@ -66,5 +66,7 @@
     <Content Include="textures\MenuScreen.png" />
     <Content Include="textures\Spacebro.png" />
     <Content Include="textures\Spacebro2.png" />
+    <Content Include="textures\WeakEnemy2.png" />
+    <Content Include="textures\WeakEnemy3.png" />
   </ItemGroup>
 </Project>
