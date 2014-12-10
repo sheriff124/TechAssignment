@@ -205,3 +205,7 @@ C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-unsigned\Applica
 C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-signed\Application\textures\WeakEnemy3.png
 C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-unsigned\Application\textures\WeakEnemy4.png
 C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-signed\Application\textures\WeakEnemy4.png
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-unsigned\Application\textures\Background2.jpg
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-signed\Application\textures\Background2.jpg
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-unsigned\Application\textures\Background2.png
+C:\Users\Tom\Desktop\TechAssignment\SPACE\SPACE\bin\Debug\SPACE-signed\Application\textures\Background2.png

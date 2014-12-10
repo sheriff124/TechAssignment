@@ -1,28 +1,30 @@
 using System;
+using System.Collections.Generic;
+
 using Sce.PlayStation.Core;
+using Sce.PlayStation.Core.Environment;
 using Sce.PlayStation.Core.Graphics;
+using Sce.PlayStation.Core.Input;
+using Sce.PlayStation.Core.Audio;
+
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 
 namespace SPACE
 {
-	public class BackgroundLoader
-	{	
-		//Private variables.
-		private SpriteUV[] 	sprites;
-		private TextureInfo	textureInfo;
-		
-		//Public functions.
-		public BackgroundLoader (Scene scene)
+	public class BackgroundLoader : Entity
+	{
+		public BackgroundLoader (String FileName)
 		{
-			sprites	= new SpriteUV[1];
-			
-			textureInfo = new TextureInfo("/Application/textures/Background.jpg");
+			sprite	= new SpriteUV();
+			texInfo = new TextureInfo ("/Application/textures/" + FileName + ".png");
+			sprite = new SpriteUV (texInfo);
+			sprite.Quad.S = texInfo.TextureSizef;
 		}	
 		
 		public void Dispose()
 		{
-			textureInfo.Dispose();
+			texInfo.Dispose();
 		}
 		
 		public void Update()

@@ -19,8 +19,9 @@ namespace SPACE
 		private bool		scenePaused;
 		public bool			swapScene {get; set;}
 		
-		private Entity			player;
-		private Entity[]		enemy;
+		private Entity				player;
+		private Entity[]			enemy;
+		private Entity				backgroundLoader;
 		
 		
 		public GameScene()
@@ -29,6 +30,9 @@ namespace SPACE
 			
 			scenePaused = false;
 			swapScene = false;;
+			
+			backgroundLoader = new BackgroundLoader("Background2");
+			this.AddChild(backgroundLoader.Sprite);
 			
 			enemy = new Entity[8];
 			enemy[0] = new Enemy(new Vector2(100f,0f), "WeakEnemy4");

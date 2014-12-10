@@ -69,5 +69,7 @@
     <Content Include="textures\WeakEnemy2.png" />
     <Content Include="textures\WeakEnemy3.png" />
     <Content Include="textures\WeakEnemy4.png" />
+    <Content Include="textures\Background2.jpg" />
+    <Content Include="textures\Background2.png" />
   </ItemGroup>
 </Project>
