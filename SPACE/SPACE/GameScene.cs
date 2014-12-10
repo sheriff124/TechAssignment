@@ -22,12 +22,15 @@ namespace SPACE
 		private Entity				player;
 		private Entity[]			enemy;
 		private Entity				backgroundLoader;
+		private Entity				loadMenu;
+		private bool 				play = false;
 		
 		
 		public GameScene()
 		{
 			Scheduler.Instance.ScheduleUpdateForTarget(this, 1, false);	// Tells the director that this "node" requires to be updated
-			
+			var touches = Touch.GetData(0);
+			GamePadData data = GamePad.GetData(0);
 			scenePaused = false;
 			swapScene = false;;
 			
@@ -55,6 +58,8 @@ namespace SPACE
 			player = new Player();
 			this.AddChild(player.Sprite);
 			
+			loadMenu = new LoadMenu("MenuScreen");
+			this.AddChild(loadMenu.Sprite);
 		}
 		
 		public override void Update(float deltaTime)
@@ -73,6 +78,7 @@ namespace SPACE
 				enemy[6].Update (deltaTime,true,false);
 				enemy[7].Update (deltaTime,true,true);
 			}
+			loadMenu.Update(0.0f,false, false);
 		}
 		
 		public void ResetScene()
